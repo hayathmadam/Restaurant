@@ -1,0 +1,78 @@
+﻿@model IEnumerable<IdentityRole>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+
+    ViewBag.Title = "All Roles";
+
+
+}
+<h1>
+
+  All Roles
+</h1>
+@if(Model.Any())
+{
+   
+        <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole" asp-controller="Administration">
+            Create Role
+        </a>
+        foreach( var role in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+
+                Role ID: @role.Id
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Role Name:@role.Name
+
+                </h5>
+
+            </div>
+            <div class="card-footer">
+                <form asp-action="DeleteRole" method="post" asp-controller="Administration" asp-route-id="@role.Id">
+             @*    @if ((await AuthorizationService.AuthorizeAsync(User, "EditRolepolicy")).Succeeded)
+                {
+
+                <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id"> Edit</a>
+                    
+
+                } *@
+
+                <button type="submit" class="btn btn-danger"  onclick="confirm('Are You Sure  you want Delete User:@role.Name')">
+                    Delete </button>
+                    </form>
+            </div>
+        </div>
+    }
+
+
+}
+else
+{
+ <div class="card">
+     <div class="card  card-header">
+
+         No Roles Created Yet 
+
+     </div>
+     <div class="card-body">
+
+         <h5 class="card-title" >
+
+             Use the button  below  to create the  a Role 
+
+         </h5>
+         
+
+
+     </div>
+
+ </div>   
+
+
+}

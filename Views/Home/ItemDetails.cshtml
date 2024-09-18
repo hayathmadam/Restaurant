@@ -1,0 +1,96 @@
+﻿@model IEnumerable<AddItem>
+@{
+    ViewBag.Title = "Item Details";
+}
+<div class="row pt-5">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+    <div class="card">
+     <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">Data has deleted</div>
+      <div class="card-header bg-dark">
+        <h6 class="card-title text-center" style="-webkit-text-fill-color:aliceblue"> Item Details </h6>
+      </div>
+      <div class="card-body">
+           
+         <div class="card-title">
+          <a class="btn btn-success" asp-action="additem" asp-controller="Home">AddNew</a>
+         </div>
+               
+                <table class="table table-bordered data-table" id="itemDetailstable">
+                    <thead class="head-light">
+                        <tr>
+                         <th>ItemName</th>
+                         <th>ItemType</th>
+                         <th>ItemPrice</th>
+                            <th style="text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+           
+      </div>
+      <div class="card-footer bg-dark">
+      </div>
+
+    </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        var js=jQuery.noConflict(true) 
+        $(document).ready(function () 
+        {
+        itemDetailstable()
+           return false
+        });
+    function itemDetailstable() {
+            tabledata = [];
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:5246/Home/GetItemDetails',
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                 $.each(data,function(key,value){
+                    var Edit = "<a class='btn btn-primary' onclick='EditFun(this)' >Edit</a>"
+                    var Remove = "<a class='btn btn-danger' onclick='RemoveFun(this)'>Remove</a>"
+                    var itemid = "<input type='hidden' id='itemid' value=" + value.id + " />"
+                    var _Action = itemid + Edit + " | " + Remove
+                    tabledata.push([value.itemName, value.itemType, value.itemPrice, _Action])
+                 })
+                },
+                Failure: function (error) {
+                }
+            })
+        $('#itemDetailstable').DataTable({
+            data:tabledata
+        })
+        }
+        function EditFun(elecment) {
+            //var itemid = $(element).colsest('tr').find('#itemid').val();
+        var editid = $(elecment).closest('tr').find('#itemid').val();
+        window.location.href = '/Home/ItemEdit/?id=' + editid;
+        }
+    function RemoveFun(element) {
+        //var itemid = $(element).colsest('tr').find('#itemid').val();
+        var deleteid = $(element).closest('tr').find('#itemid').val();
+        if(confirm("Do Want To remove this " + deleteid))
+        {
+            proccedremoved(deleteid)
+        }
+    }
+        function proccedremoved(deleteid) {
+            window.location.href = '/Home/ItemDetete/?id='+deleteid;
+            jQuery('.alert').show().delay(5000).queue(function (next) {
+                $(this).hide();
+                next(),
+                  jQuery('.alert').html(data.success);
+            });
+
+           }
+</script>
+
+
+  
+

@@ -1,0 +1,64 @@
+﻿@model ItemTypecreateViewModel
+<div class="row pt-5">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 text-center">
+    <div class="card">
+            <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">Data has saved</div>
+        <div class="card-header bg-dark">
+            <h6 class="card-title" style="-webkit-text-fill-color:aliceblue" > add new type</h6>
+        </div>
+        <div class="card-body">
+                <div class="form-group row">
+                    <label asp-for="Name" class="col-sm-2 col-form-label"> Name</label>
+                    <div class="col-sm-10">
+                        <input asp-for="Name" class="form-control" placeholder="Name" id="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div>
+                    <button type="submit" class="btn btn-dark" onclick="SaveItem()" style="-webkit-text-fill-color:aliceblue">save</button>
+                </div>
+         
+        </div>
+
+        <div class="card-footer bg-dark">
+        </div>
+    </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/js/customscript.js">
+    </script>
+}
+<script>
+    function SaveItem() {
+        var Isprocced = false;
+        let formData = {
+            Name: $("#Name").val(),
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5246/Home/ItemType',
+            data: formData,
+            async: false,
+            success: function (response) {
+                if (response) {
+                    window.location.href = '/Home/ItemTypeDetails';
+                    jQuery('.alert').show().show().delay(5000).queue(function (next) {
+                        $(this).hide();
+                        next(),
+                            jQuery('.alert').html(data.success);
+                    });
+                }
+                else {
+                    alert('failed to save');
+                }
+            },
+            Failure: function (error) {
+                lert(error)
+            }
+        })
+    }
+</script>

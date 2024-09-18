@@ -1,0 +1,95 @@
+﻿
+@model EmployeeManagment.ViewModels.ItemViewItemCreateViewModel
+<div>
+<div class="row pt-5">
+ <div class="col-2">
+</div>
+ <div class="col-md-8 text-center" >
+<div class="card">
+ <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">
+   Data has saved</div>
+ <div class="card-header bg-dark">
+<div class="row">
+<div class="col-2">
+</div>
+<div class="col-8"> 
+<h6 class="card-title" id="ItemTitle" style="-webkit-text-fill-color:aliceblue"> add new Items </h6>
+</div>
+<div class="col-2">
+</div>
+</div>
+  </div>
+
+  <div class="card-body">
+    <div class="form-group row">
+        <label asp-for="@Model.ItemName" class="col-sm-2 col-form-label"> ItemName</label>
+        <div class="col-sm-10">
+          <input asp-for="@Model.ItemName" class="form-control" placeholder="ItemName" name="ItemName" id="ItemName" />
+        <span asp-validation-for="@Model.ItemName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+    <label asp-for="@Model.ItemPrice" class="col-sm-2 col-form-label">ItemPrice</label>
+    <div class="col-sm-10">
+     <input class="form-control" placeholder="ItemPrice" name="ItemPrice" id="ItemPrice"/>
+     </div>
+    </div>
+   <div class="form-group row">
+  <label asp-for="ItemType" class="col-sm-2 col-form-label">ItemType</label>
+  <div class="col-sm-10">
+    <select  class="form-control" id="ItemType">
+   @foreach(var ItemTyp in @Model.ItemType)
+{
+ <option value="@ItemTyp.Name">@ItemTyp.Name</option>
+}
+ </select>
+ </div>
+ </div>
+    <div class="text-center">
+     <button  class="btn btn-dark"  onclick="SaveItem()" style="-webkit-text-fill-color:aliceblue">Save</button>
+    </div>
+    </div>
+    <div class="card-footer badge-dark"> </div>
+</div>
+</div>
+</div>
+</div>
+@section scripts {
+    <script src="~/js/customscript.js">
+    </script>
+}
+<script src="~/lib/jquery/jquery.js"></script>
+<script type="text/javascript">
+    function SaveItem() {
+        var Isprocced = false;
+        let formData = {
+            ItemName: $("#ItemName").val(),
+            ItemPrice: $("#ItemPrice").val(),
+            itemType: $("#ItemType").val(),
+        }   
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5246/Home/additem',
+            data: formData,
+            async: false,
+            success: function (response){
+                if (response) {
+                    window.location.href = '/Home/Itemdetails';
+                    jQuery('.alert').show().show().delay(5000).queue(function (next) {
+                        $(this).hide();
+                        next(),jQuery('.alert').html(data.success);
+                    })
+                }
+                else {
+                    alert('failed to save');
+                }
+            },
+            Failure: function (error){
+                alert(error)
+            }
+            
+        });
+    }
+    </script>
+
+

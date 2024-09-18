@@ -1,0 +1,193 @@
+﻿@model EmployeeManagment.ViewModels.AddItemItemTypeViewModel
+<div class="container-fluid">
+    <div  class="row">
+        <div class="col-md-6">
+            <hr/>
+     <div class="card">
+        <div class="card-header bg-dark" style="-webkit-text-fill-color:aliceblue">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="collapse navbar-collapse grid gap-3" id="collapseNavbar">
+                <ul class="navbar-nav">                    
+            @foreach (var itemType in Model.typeItemlist)
+    {
+ <li  class="nav-item m-1">
+            <a class="text-justify nav-link"  id="selectItem" asp-route-ItemType="@itemType.Name" style="-webkit-text-fill-color:aliceblue">
+   @itemType.Name
+</a>
+  </li>                    
+    }
+    </ul>
+    </div>
+    </nav>
+
+    </div>
+     <div class="card-body" >
+                    <div class="row">
+    @foreach (var additem in Model.addItemlist)
+    {
+        var Querystring = Context.Request.Query["ItemType"];
+                         
+        if (Context.Request.Query["ItemType"] == @additem.ItemType)
+        {
+             <div class="col-md-2  m-1  btn btn-outline-dark invoiceadd" 
+                    data-id="@additem.Id" data-itemname="@additem.ItemName" data-itemprice="@additem.ItemPrice" data-itemtype="@additem.ItemType">
+                <h6>@additem.ItemName</h6>
+                <hr />
+                <h6>@additem.ItemPrice</h6>
+            </div>
+            }
+            }      
+           </div>
+         </div>
+         </div>
+         <div class="card-footer bg-dark">
+         </div>  
+        </div>
+        <div class="col-md-6">
+            <hr />
+            <div class="card">
+                <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">Order has Sent</div>
+                <div class="card-header bg-dark text-center" style="-webkit-text-fill-color:aliceblue">  <h5> invoice side</h5></div>
+                <form method="POST" id="Item_form" >
+                <div class="card-body">           
+                    <table class="table-bordered">
+                    </table>
+                    <br/>
+                    <table class="border table-bordered" >
+                        <tfoot>
+                            <tr>
+                                <th colspan="4">Acount</th>
+                                    <th id="total" style="text-align:center">0</th>
+                            </tr>
+                        </tfoot>
+                    <thead>
+                   <tr>
+                <td>S_table</td>
+                <td colspan="3">
+                <select class="form-control"  name="S_table">
+                  <option disabled>please Select Table Number</option>
+                 @for(int i=1;i<=100;i++)
+                {
+                <option>ca_@i</option>
+                }
+                    </select>
+                </td>
+                 
+                <td colspan="2">
+                    <button class="form-control btn btn-success Senddata" style="display:none;" type="button">Send</button>
+                </td>
+                    </tr>  
+                     <tr>
+                    <th>Name</th>
+                     <th>ItemType</th>
+                    <th >Price</th>
+                    <th >Quantity</th>
+                     <th >Total</th>
+                    <th>Remove</th>
+                  </tr>
+                  </thead>
+                   <tbody class="invoiceModel">
+                  </tbody>
+                  </table>
+                </div>
+                </form>
+                <div class="card-footer bg-light">
+                  
+                </div>
+
+               
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts {
+}
+<script>
+    $(document).ready(function () {
+        var invoiceadd = $('.invoiceadd');
+        var itemid = $(this).data("id");
+        var invoiceModel = $('.invoiceModel');//Input field wrappe
+        $(invoiceadd).on('click', function () {
+            var itemid = $(this).data("id");
+            var itemname = $(this).data("itemname");
+            var itemprice = $(this).data("itemprice");
+            var itemtype = $(this).data("itemtype");
+            var fieldHTML = '<tr><td><input type="text" class="form-control" value ="' + itemname + '" id="itemName' + itemid + '"  name="ItemName[]"/> </td><td><input type="text" class="form-control" value="' + itemtype + '" id="itemtype" name="itemtype[]"></td><td><input type="text" value="' + itemprice + '" name="itemprice[]"class="form-control"></td><input type="text" value="' + itemid + '" class="form-control itemid"><td><input type="text" min="1" class="form-control" placeholder="0"  onkeyup="Increase(this)" name="Qut[]"><td class=" form-control netprice">0</td><td><button class="btn btn-danger"  onclick="remove_line(this)"> Remove </button></td></tr>';
+            $(invoiceModel).append(fieldHTML);
+           // $('.Senddata').prop('disabled',true);// for disable add button
+        });        
+    });
+    function Increase(q) {
+        var total = document.getElementById('total');
+        var netprice = document.getElementsByClassName('netprice');
+        var pricevalue = q.parentElement.parentElement.children[2].children[0].value;
+         q.parentElement.parentElement.children[4].innerHTML = (q.value*pricevalue);
+
+        var cal = 0;
+        for (let i = 0; i < netprice.length; i++) {
+            cal += parseInt(netprice[i].innerHTML)
+        }
+        if (cal>0) {
+            jQuery('.Senddata').show()
+           // $('.Senddata').prop('disabled',false);// for disable add button
+        }
+        total.innerHTML=cal;
+    }
+    function remove_line(e) {
+        var netprice = document.getElementsByClassName('netprice');
+        $(e.parentElement.parentElement).remove();
+        var cal = 0;
+        for (let i = 0; i < netprice.length; i++) {
+            cal += parseInt(netprice[i].innerHTML);
+        }
+        if (cal == 0) {
+             //$('.Senddata').prop('disabled', false);// for disable */ add button
+        }
+        total.innerHTML = cal.toFixed(2);
+    }
+    function insertUrlParam(key, value) {
+        if (history.pushState) {
+            let searchParams = new URLSearchParams(window.location.search);
+            searchParams.set(key, value);
+            let newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams.toString();
+            window.history.pushState({ path: newurl }, '', newurl);
+        }
+    }
+    $('.Senddata').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            data:$('#Item_form').serialize(),
+            url: 'http://localhost:5246/Home/addCahser',
+            traditional:true,
+            type: "POST",
+            dataType:"json",
+            success: function (data){
+                jQuery('.alert').show().delay(5000).queue(function (next) {
+                    $(this).hide();
+                    next(),
+                        jQuery('.alert').html(data.success);
+                }),
+
+            
+                window.location.href = '/Index';
+            },
+            error: function (data) {
+                console.log('Error:', data);
+
+            }
+        
+    });
+
+
+    });
+</script>
+
+
+
+
+
+
+
+
+

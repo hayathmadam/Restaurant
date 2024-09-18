@@ -1,0 +1,114 @@
+﻿
+
+@model LoginViewModel
+@{
+
+    ViewBag.Title = "User login";
+}
+
+<div class="row pt-5">
+
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header pt-2 text-center bg-dark"  style="-webkit-text-fill-color:aliceblue" >
+
+             <h6 class="card-title"> local Account  login </h6>
+
+         </div>
+         <div class="card-body">
+                <form asp-controller="account" asp-action="login" method="post" class="mt-3">
+                   
+                    <input type="hidden" name="ReturnUrl" value="@ViewData["ReturnUrl"]"/>
+                    <div class="form-group row">
+                        <label asp-for="Email" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Email" class="form-control" placeholder="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="Password" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="text-center"><button type="submit" class="btn btn-dark" style="-webkit-text-fill-color:aliceblue">login</button>
+                        </div>
+                </form>
+         </div>
+            <div class="card-footer bg-dark"> </div>
+        </div>
+    </div>
+
+
+
+
+@* <div class="col-md-6">
+        <h1> External login </h1>
+        <hr/>
+     
+        @{
+            if(Model.ExternalLogins.Count==0)
+            {
+               <div>
+               No External logins configured
+               
+                </div>
+            }
+            else
+            {
+                
+                @foreach(var provider in Model.ExternalLogins)
+                {
+                    <div>
+                        <form method="post" asp-action="ExternaLogin" asp-route-returnUrl="@Model.ReturnUrl" asp-controller="account">
+                    
+                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="login usin your @provider.DisplayName account">
+                    @provider.DisplayName
+                    </button>
+                    
+                    </form>
+                    </div>
+
+                }
+
+            }
+
+      }
+
+         
+            
+            
+
+
+
+        
+        
+
+         
+       
+    </div> *@
+
+    <div class="col-md-2">
+
+
+
+    </div>
+
+</div>

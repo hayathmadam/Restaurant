@@ -1,0 +1,192 @@
+﻿
+<div class="row pt-5">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">Data has deleted</div>
+            <div class="card-header bg-dark">
+                <h6 class="card-title text-center" style="-webkit-text-fill-color:aliceblue"> Expenses Details </h6>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-success" id="AddExpen">AddNew</a>
+                <table class="table table-bordered data-table" id="itemTypeDetailstable">
+                    <thead class="head-light">
+                        <tr>
+                            <th>ExName</th>
+                            <th>ExType</th>
+                            <th>ExValue</th>
+                            <th>ExDate</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer bg-dark">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ExpensesForm" aria-hidden="true">
+    <div class="row pt-5">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div id="form-messages" class="alertsave success btn btn-success" role="alert" style="display:none;">Data has saved</div>
+                <div class="card-header bg-dark">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h6 class="card-title " style="-webkit-text-fill-color:aliceblue">  Add New Expenses </h6>
+                       </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2"> </div>
+                        <div class="col-md-2"> </div>
+                        <div class="col-md-2">
+                            <button type="button" class="close" title="Close form" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="-webkit-text-fill-color:aliceblue">&times;</span>
+                            </button>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="ExpformData" method="post" class="mt-3" class="form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">ExpensesName</label>
+                            <div class="col-sm-10">
+                                <input name="ExpName" class="form-control" placeholder="EnterName" id="ExpName"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">ExpensesValue</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="ExpValue" class="form-control" placeholder="EnterValue" id="ExpValue"/>
+                            </div>
+                        </div>  
+                        <div class="form-group row">
+                            <label   class="col-sm-2 col-form-label">ExpensesType</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="ExpType" >
+                                    <option disabled value="Select ExpensesType">Select ExpensesType</option>
+                                    <option>Kitchen</option>
+                                    <option>Beverage</option>
+                                    <option>Sandwich</option>
+                                </select>
+                            </div>
+                            </div>
+                        
+                        <div class="text-center">
+                            <button type="button" class="btn btn-dark ExpSentdata" id="ExpSentdata">save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var js = jQuery.noConflict(true)
+    $(document).ready(function () {
+        itemTypeDetailstable()
+        return false
+    });
+
+    function itemTypeDetailstable() {
+
+
+        tabledata = [];
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:5246/Home/GetItemExpenses',
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    var Edit = "<a class='btn btn-primary' onclick='EditFun(this)' style='text-align:center'>Edit</a>"
+                    var Remove = "<a class='btn btn-danger' onclick='RemoveFun(this)' style='text-align:center'>Remove</a>"
+                    var ExpId = "<input type='hidden' id='ExpId' value=" + value.id + " />"
+                    var Role = "<a class='btn btn-success' onclick='RemoveFun(this)' style='text-align:center'>Role</a>"
+                    var Action = ExpId + Edit + " | " + Remove
+                    tabledata.push([value.exName, value.exType, value.exValue, value.exdate, Action])
+                })
+            },
+            Failure: function (error) {
+            }
+        }),
+
+
+
+            $('#itemTypeDetailstable').DataTable({
+                data: tabledata,
+                order: [[4, "desc"]],
+            })
+    }
+
+
+    $('#AddExpen').click(function () {   
+        $('#ExpensesForm').modal('show');
+    });
+    $('.close').click(function () {
+        $('#ExpensesForm').hide('fade');
+        window.location.href = '/Home/Expenses';
+    });
+    $('#ExpSentdata').click(function () {
+        $.ajax({
+            url: 'http://localhost:5246/home/Expenses',
+            traditional: true,
+            type: "POST",
+            data: {
+                ExName:$("#ExpName").val(),
+                ExValue:$("#ExpValue").val(),
+                ExType:$("#ExpType").val(),
+            },
+              success: function (data) {
+                $('#ExpensesForm').hide('fade');
+                window.location.href = '/Home/Expenses';
+                jQuery('.alertsave').show().delay(5000).queue(function (next) {
+                    $(this).hide();
+                    next(),
+                        jQuery('.alertsave').html(data.success);
+                });
+
+            },
+            error: function () {
+
+            },
+              
+             
+        });
+
+    });
+    function EditFun(elecment) {
+        var editid = $(elecment).closest('tr').find('#ExpId').val();
+             window.location.href = '/Home/ExpensesEdit/?id=' + editid;
+    }
+    function RemoveFun(element) {
+        var deleteid = $(element).closest('tr').find('#ExpId').val();
+        if (confirm("Do Want To remove this " + deleteid)) {
+            proccedremoved(deleteid)
+        }
+    }
+    function proccedremoved(deleteid) {
+        window.location.href = '/Home/ExpensesDelete/?id=' + deleteid;
+        jQuery('.alert').show().delay(5000).queue(function (next) {
+            $(this).hide();
+            next(),
+                jQuery('.alert').html(data.success);
+        });
+    }
+
+
+ 
+</script>
+
+
+

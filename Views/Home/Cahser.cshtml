@@ -1,0 +1,176 @@
+﻿
+<!DOCTYPE html>
+<head>
+    <script src="~/js/print/datatable.js"></script>
+    <script src="~/js/print/datatables.buttons.js"></script>
+    <script src="~/js/print/buttons.datatables.js"></script>
+    <script src="~/js/print/buttons.print.min.js"></script>
+    <script src="~/js/print/datatables.select.js"></script>
+    <script src="~/js/print/sum.js"></script>
+    <script src="~/js/print/select.datatables.js"></script>
+   </head>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <hr />
+            <div class="card">
+                <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">Order has cancled</div>
+                <div class="card-header bg-dark text-center" style="-webkit-text-fill-color:aliceblue">
+                    Dashboard
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered data-table" id="DashboardTable" style="width:600px">
+                        <thead class="head-light">
+                            <tr>
+                                <th>OrderNumber</th>
+                                <th>ItemName</th>
+                                <th>ItemType</th>
+                                <th>ItemPrice</th>
+                                <th>Qunantity</th>
+                                <th>Total</th>
+                                <th>T_number</th>
+                                <th>Code</th>
+                                <th>Status</th>
+                                <th>Cancle</th>
+                          
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                           <tr>
+                        <td colspan="3">Total</td>
+                        <td id="total" style="text-align:center">0</td>
+                        <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer bg-dark">
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    var js = jQuery.noConflict(true)
+    $(document).ready(function () {
+        DashboardTable()
+        return false
+    });
+    function DashboardTable() {
+        tabledata = [];
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:5246/Home/CahserGetDetails',
+            dataType: 'json',
+            async: false,
+            processing: true,
+            serverSide: true,
+            success: function (data) {
+                $.each(data, function (key, value,row) {
+                    var itemid = "<input type='hidden' id='itemid' value=" + value.id + " />"
+                    var t_number = "<input type='hidden' id='t_number' value=" + value.t_number + " />"
+                    var cancle = "<a class='btn btn-danger' onclick='RemoveFun(this)' style='text-align:center'>Cancle</a>"
+                    var _Action = itemid + cancle + t_number
+                    if (value.status == 1) {
+                        var progrssed = "<a class='btn btn-success'  style='text-align:center'>progrssed</a>"
+                    }
+                    else {
+                        if (value.status == 0) {
+                            var progrssed = "<a class='btn btn-info'  style='text-align:center'>Cocmpleted</a>"
+                            
+                   
+                    }
+                   }
+                    tabledata.push([value.id,value.itemName, value.itemType, value.itemPrice, value.qunantity, value.total, value.t_number, value.code, value.status, _Action])
+                })
+            },
+            Failure: function (error) {
+            },
+        })
+        $('#DashboardTable').DataTable({
+            data: tabledata,
+            //order: [[0, "desc"]],
+            paging:false,
+            ordering:[[0,"desc"]],
+         
+            rowCallback: function (row, data, index) {
+              
+                if (data[8] ==1) {
+                    jQuery(row).hide();
+                };
+            }
+        }); 
+    }
+    function EditFun(elecment){
+        var editid = $(elecment).closest('tr').find('#itemid').val();
+        window.location.href = '/Home/ItemTypeEdit/?id=' + editid;
+    }
+    function RemoveFun(element){
+        var deleteid = $(element).closest('tr').find('#itemid').val();
+        var t_number = $(element).closest('tr').find('#t_number').val();
+        if (confirm("Do Want To Cancle this " + "\t" + t_number + "\t" + "order" + "\t" + deleteid)) {
+            proccedremoved(deleteid)
+        }
+    }
+    function proccedremoved(deleteid) {
+        window.location.href = '/Home/Cahserdelete/?id=' + deleteid;
+        jQuery('.alert').show().delay(5000).queue(function (next) {
+            $(this).hide();
+            next(),
+                jQuery('.alert').html(data.success);
+        });
+    }
+    $(document).ready(function () {
+       var table = $('#DashboardTable');
+        table = new DataTable('#DashboardTable', {
+           "paging":false,
+           "info":false,
+            "print": true,
+           "bFilter":false,
+            "order": [[0,"desc"]],
+        layout: {
+            topStart: {
+                buttons: [
+                    {
+                      
+                        exportOptions: {
+                            modifier: {
+                                selected: null
+                            }
+                        }
+                    },
+                        { columns: [1, 2, 3, 4] },
+                    {
+                      extend: 'print',
+                      exportOptions:{ columns:[1, 2, 3, 4] },
+                      title: "<center><img src='http://localhost/b/public/images/crazn.png' class='img-thumbnail'  width='100px' height='100px' style='display:inline-block;margin-right:50px;'><h5>Cazanova Resturan for Sudanese Food</h5> <h6>Kampala-Uganda city</h6><h6>phone:0777444252</h6><h6>   Order Bill</h6>'</center>",
+                    }
+                ],    
+                }
+        },        
+        select: true,
+                footerCallback: function () {
+                    var api = this.api();
+                    $(api.column(3).footer()).html(
+                        api.rows({ selected: true }).data().pluck(3).sum().toFixed(3));
+                },
+                  
+
+            });
+             table.on('select', function (data) {
+                table.draw();
+                 var data = table.row(0).data();
+                 console.log(data);
+
+                //var deleteid = $(element).closest('tr').find('#itemid').val();
+             
+            
+        });
+        });
+
+
+
+</script>

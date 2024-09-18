@@ -1,0 +1,291 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EmployeeManagment
+build_property.RootNamespace = EmployeeManagment
+build_property.ProjectDir = C:\Users\hayat\source\repos\EmployeeManagment\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\hayat\source\repos\EmployeeManagment
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Account/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBY2NvdW50XGxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBY2NvdW50XFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/CreateRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxDcmVhdGVSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/EditRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxFZGl0Um9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxFZGl0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/EditUsersInRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxFZGl0VXNlcnNJblJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/ListRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxMaXN0Um9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/ListUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxMaXN0VXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/ManageUesrRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxNYW5hZ2VVZXNyUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Administration/ManageUserCalicms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xBZG1pbmlzdHJhdGlvblxNYW5hZ2VVc2VyQ2FsaWNtcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEFkZEl0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Cahser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXENhaHNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/EmployeeNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEVtcGxveWVlTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Expenses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEV4cGVuc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ExpensesEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEV4cGVuc2VzRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ItemDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEl0ZW1EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ItemEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEl0ZW1FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ItemType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEl0ZW1UeXBlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ItemTypeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEl0ZW1UeXBlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ItemTypeEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXEl0ZW1UeXBlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/ReportOfCasher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXFJlcG9ydE9mQ2FzaGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Home/RportOfExpenses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xIb21lXFJwb3J0T2ZFeHBlbnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xTaGFyZWRcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Shared/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xTaGFyZWRcTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xTaGFyZWRcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Restaurant/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UmVzdGF1cmFudFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Account/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxsb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/CreateRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cQ3JlYXRlUm9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/EditRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdFJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/EditUsersInRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdFVzZXJzSW5Sb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/ListRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cTGlzdFJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/ListUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cTGlzdFVzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/ManageUesrRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cTWFuYWdlVWVzclJvbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Administration/ManageUserCalicms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRpb25cTWFuYWdlVXNlckNhbGljbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Cahser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWhzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/EmployeeNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbXBsb3llZU5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Expenses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFeHBlbnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ExpensesEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFeHBlbnNlc0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ItemDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJdGVtRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ItemEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJdGVtRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ItemType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJdGVtVHlwZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ItemTypeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJdGVtVHlwZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ItemTypeEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJdGVtVHlwZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/ReportOfCasher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXBvcnRPZkNhc2hlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Home/RportOfExpenses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxScG9ydE9mRXhwZW5zZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Shared/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hayat/source/repos/EmployeeManagment/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

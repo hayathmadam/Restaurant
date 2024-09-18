@@ -1,0 +1,131 @@
+﻿
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <hr/>
+            <div class="card">
+                <div id="form-messages" class="alert success btn btn-success" role="alert" style="display:none;">Order has cancled</div>
+                <div class="card-header bg-dark text-center" style="-webkit-text-fill-color:aliceblue">
+                    Casher Report
+                </div>
+                <div class="card-body  col-md-12">
+                    <table border="0" cellspacing="5" cellpadding="5">
+                            <tr>
+                                <td>From:</td>
+                                <td><input type="text" id="min" name="min"></td>
+                               <td>To:</td>
+                                <td><input type="text" id="max" name="max"></td>
+                            </tr>
+                    </table>
+                    <table class="table table-bordered data-table" id="DashboardTable" style="width:600px">
+                        <thead class="head-light">
+                            <tr>
+                                <th>ItemName</th>
+                                <th>ItemType</th>
+                                <th>ItemPrice</th>
+                                <th>Qunantity</th>
+                                <th>Total</th>
+                                <th>T_number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Total</td>
+                                <td id="total" style="text-align:center">0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/filter/moment.min.js"></script>
+<script src="~/filter/datatables.datetime.min.js"></script>
+<script type="text/javascript">
+    let minDate, maxDate
+    var js = jQuery.noConflict(true)
+    $(document).ready(function () {
+        DashboardTable()
+        return false
+    });
+    function DashboardTable() {
+        tabledata = [];
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:5246/Home/GetreportDeatils',
+            dataType: 'json',
+            async: false,
+            processing: true,
+            serverSide: true,
+            success: function (data) {
+                $.each(data, function (key, value, row, column) {
+                   // var date = '2011-07-25'
+                    tabledata.push([value.itemName, value.itemType, value.itemPrice, value.qunantity,
+                        value.total,value.t_number])
+                })
+            },
+            Failure: function (error) {
+            },
+        }),
+         new DataTable('#DashboardTable',{
+            data:tabledata,
+            // "columnDefs":
+            // [
+            //  {"targets":[7,8],"visible":false},
+            // ],
+            footerCallback: function (row, data, start, end, display) {
+                var api = this.api(), data;
+                // Remove the formatting to get integer data for summation
+                var intVal = function (i) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+                pageTotal = api
+                    .column(4, { page: 'current' })
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                var sum = display.map(el => data[el][4]).reduce((a, b) => intVal(a) + intVal(b));
+                $(api.column(4).footer()).html(('' + sum.toFixed(2)));
+            },
+        });
+      let minDate, maxDate;
+    // Custom filtering function which will search data in column four between two values
+    DataTable.ext.search.push(function (settings, data, dataIndex) {
+        let min = minDate.val();
+        let max = maxDate.val();
+        let date = new Date(data[5]);
+        if (
+            (min === null && max === null) ||
+            (min === null && date === max) ||
+            (min <= date && max === null) ||
+            (min <= date && date <= max)
+        ) {
+            return true;
+        }
+        return false;
+    });
+    // Create date inputs
+    minDate = new DateTime('#min', {
+        dateformat: 'yyyy-mm-d'
+    });
+    maxDate = new DateTime('#max', {
+        dateformat:'yyyy-mm-d'
+    });
+    // DataTables initialisation
+    let table =  new DataTable('#DashboardTable');
+     searsching:false,
+    // Refilter the
+    document.querySelectorAll('#min, #max').forEach((el) => {
+        el.addEventListener('change', () => table.draw());
+    });
+    }
+</script>
+

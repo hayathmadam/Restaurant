@@ -1,0 +1,147 @@
+﻿
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <hr />
+
+            <div class="card">
+                <div class="card-header bg-dark" style="-webkit-text-fill-color:aliceblue">
+                    <div class="collapse navbar-collapse grid gap-3" id="collapseNavbar">
+                        <ul class="navbar-nav">
+                           
+                            <li class="nav-item m-1 justify-content-center">
+                                <a asp-action="Home" asp-controller="Home" class="text-justify nav-link" style="-webkit-text-fill-color:aliceblue">Home</a>
+                            </li>
+                            <li class="nav-item m-1">
+                                <a asp-action="AddItem" asp-controller="Home" class="nav-link" style="-webkit-text-fill-color:aliceblue">Add Items</a>
+                            </li>
+                            </ul>
+                            </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var employee in Model)
+                        {
+
+                            <div class="col-md-2  m-1  btn btn-outline-dark">
+                                <h5>@employee.Name</h5>
+                                <hr>
+                                <img src="~/Images/2.jpg" height="20" width="20" />
+                                <hr>
+                                100,000
+                            </div>
+
+                        }
+                        <div class="col-md-2  m-1  btn btn-outline-dark">
+                            <h5>banas</h5>
+                            <hr>
+                            <img src="~/Images/2.jpg" height="20" width="20" />
+                            <hr>
+                            100,000
+                        </div>
+                        <div class="col-md-2  m-1  btn btn-outline-dark">
+                            <h5>banas</h5>
+                            <hr>
+                            <img src="~/Images/2.jpg" height="20" width="20" />
+                            <hr>
+                            100,000
+                        </div>
+                        <div class="col-md-2  m-1  btn btn-outline-dark">
+                            <h5>banas</h5>
+                            <hr>
+                            <img src="~/Images/2.jpg" height="20" width="20" />
+                            <hr>
+                            100,000
+                        </div>
+
+                        <div class="col-md-2  m-1  btn btn-outline-dark">
+                            <h5>banas</h5>
+                            <hr>
+                            <img src="~/Images/2.jpg" height="30" width="30" />
+                            <hr>
+                            100,000
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <hr />
+            <div class="card">
+                <div class="card-header bg-dark" style="-webkit-text-fill-color:aliceblue">      <h5> invoice side</h5></div>
+                <div class="card-body">
+                    <h5> item side </h5>
+                </div>
+
+                <div class="card-footer bg-dark">
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+@model IEnumerable<Employee>
+
+@{
+    //Layout = "~/views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee Details";
+}
+<table>
+    <thead>
+    </thead>
+    <tbody>
+
+        <div class="card-deck">
+            @foreach (var employee in Model)
+            {
+
+                <div class="card col-md-4  m-3" style="min-width:18rem;max-width:30.5%;">
+                    <div class="card-header">
+                        <h3>@employee.Name</h3>
+
+                    </div>
+                    <div>
+                        <img class="card-img-top" src="~/Images/2.jpg" asp-append-version="true" />
+                    </div>
+                    <div class="card-footer text-center">
+
+                        <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id" class="btn btn-success">view</a>
+
+                        <a href="#" class="btn btn-primary">view</a>
+                        <a asp-action="Edit" asp-controller="home" asp-route-id="@employee.Id"
+                           class="btn btn-primary m-1"> Edit</a>
+                        <a href="#" class="btn btn-danger">Delete</a>
+
+                    </div>
+
+                </div>
+
+            }
+        </div>
+
+
+    </tbody>
+
+</table>
